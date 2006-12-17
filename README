@@ -1,0 +1,82 @@
+NAME
+    Class::DBI::GraphEasy - use Graph::Easy to graph Class::DBI classes
+    easily.
+
+SYNOPSIS
+        my $graph = Class::DBI::GraphEasy->new (classes => ['Music::Artist','Music::CD'], prettify => 1, colorize => 1, show_columns => 1, no_recursion => 0); #returns a Graph::Easy object
+            print $graph->as_html_file(); #render $graph as html for rapid graphing
+            my $graphviz = $graph->as_graphviz(); #render as graphviz for best results
+
+DESCRIPTION
+    This module integrates Class::DBI and Graph::Easy. It is designed to
+    easily generate diagrams to illustrate the given Class::DBI classes. By
+    default, it traverses both 'has a' and 'has many' relationships to
+    discovery foreign classes recusively until not further relationships are
+    found.
+
+METHODS
+    The public method is new().
+
+  new()
+    It returns an Graph::Easy object.
+
+    The following is a description of possible parameters.
+
+    classes => \@your_cdbi_classes
+        This paramater is mandatory. It takes an arrayref of the Class::DBI
+        classes that you would like to graph. The class list is NOT
+        restricted by namespaces.
+
+    prettify => 0 | 1
+        Defaulted to 0. If set to 1, the module will prettify your class and
+        attribute (column) labels, for example, showing "Wonderful Class"
+        instead of "some::wonderful_class". Please note that the actual
+        names of the class nodes are NOT changed. To prevent naming
+        collisions, attributes node names are concatenated with their class
+        name using a hyphen, i.e. "Class::Name-Attribute_Name". Please refer
+        to the Graph::Easy Manual for controlling per node or per edge
+        attributes.
+
+    colorize => 0 | 1
+        Defaulted to 0. If set to 1, it will use a default color style.
+
+    show_columns => 0 | 1
+        Defaulted to 0. It controls whether to graph the attributes
+        (columns) of the given Class::DBI classes. The module automatically
+        hides primary key columns and foreign key columns founded in 'has a'
+        relationships. Attribute (column) nodes are graphed as circles.
+
+    no_recursion => 0 | 1
+        Defaulted to 0. If set to 1, the module will NOT traverses
+        relationships automatically to discovery foreign classes.
+
+    flow => north | south | west | east
+        Defaulted to east. It is a shortcut to the flow directions of a
+        graph suppported by Graph::Easy.
+
+    arrowstyle => open | closed | filled | none
+        Defaulted to open. It is a shortcut to the arrowstyles supported by
+        Graph::Easy. It applies to all edges between classes. This option is
+        handy since not all arrow styles are rendered nicely as html.
+
+  _graph_it()
+    This is an internal API to construct the graph.
+
+  _prettify()
+    This is an internal API to prettify class labels and attribute (column)
+    labels.
+
+  _show_columns()
+    This is an internal API for graphing attributes (columns).
+
+SEE ALSO
+    Class::DBI, Graph::Easy.
+
+AUTHOR
+    Xufeng (Danny) Liang danny@scm.uws.edu.au
+
+COPYRIGHT & LICENSE
+    Copyright 2006 Xufeng (Danny) Liang, All Rights Reserved.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
