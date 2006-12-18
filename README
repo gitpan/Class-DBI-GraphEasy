@@ -1,31 +1,37 @@
 NAME
-    Class::DBI::GraphEasy - use Graph::Easy to graph Class::DBI classes
-    easily.
+    Class::DBI::GraphEasy - Graph Class::DBI classes automatically.
 
 SYNOPSIS
-        my $graph = Class::DBI::GraphEasy->new (classes => ['Music::Artist','Music::CD'], prettify => 1, colorize => 1, show_columns => 1, no_recursion => 0); #returns a Graph::Easy object
+        my $graph = Class::DBI::GraphEasy->new(
+                                            classes => ['Music::Artist','Music::CD'], 
+                                            prettify => 1, 
+                                            colorize => 1, 
+                                            show_columns => 1, 
+                                            no_recursion => 0,
+                                    ); #returns a Graph::Easy object
+        
             print $graph->as_html_file(); #render $graph as html for rapid graphing
             my $graphviz = $graph->as_graphviz(); #render as graphviz for best results
 
 DESCRIPTION
     This module integrates Class::DBI and Graph::Easy. It is designed to
-    easily generate diagrams to illustrate the given Class::DBI classes. By
-    default, it traverses both 'has a' and 'has many' relationships to
-    discovery foreign classes recusively until not further relationships are
-    found.
+    automatically generate diagrams to illustrate the given Class::DBI
+    classes. By default, it traverses both 'has a' and 'has many'
+    relationships to discovery foreign classes recusively until not further
+    relationships are found.
 
 METHODS
     The public method is new().
 
   new()
-    It returns an Graph::Easy object.
+    It returns an Graph::Easy object or false when failed.
 
     The following is a description of possible parameters.
 
     classes => \@your_cdbi_classes
         This paramater is mandatory. It takes an arrayref of the Class::DBI
-        classes that you would like to graph. The class list is NOT
-        restricted by namespaces.
+        classes (package names) that you would like to graph. The list is
+        NOT restricted by namespaces.
 
     prettify => 0 | 1
         Defaulted to 0. If set to 1, the module will prettify your class and
@@ -44,10 +50,10 @@ METHODS
         Defaulted to 0. It controls whether to graph the attributes
         (columns) of the given Class::DBI classes. The module automatically
         hides primary key columns and foreign key columns founded in 'has a'
-        relationships. Attribute (column) nodes are graphed as circles.
+        relationships.
 
     no_recursion => 0 | 1
-        Defaulted to 0. If set to 1, the module will NOT traverses
+        Defaulted to 0. If set to 1, the module will NOT traverse
         relationships automatically to discovery foreign classes.
 
     flow => north | south | west | east
@@ -55,12 +61,26 @@ METHODS
         graph suppported by Graph::Easy.
 
     arrowstyle => open | closed | filled | none
-        Defaulted to open. It is a shortcut to the arrowstyles supported by
-        Graph::Easy. It applies to all edges between classes. This option is
-        handy since not all arrow styles are rendered nicely as html.
+        Defaulted to open. It is a shortcut to control the arrowstyles
+        supported by Graph::Easy. It applies to all edges between classes.
+        This option is handy since not all arrow styles are rendered nicely
+        as html.
+
+    class_shape => circle | diamond | ellipse ...
+        Defaulted to rect (rectangle). It is a shortcut to control the shape
+        of all classes. Please refer to the Graph::Easy Manual for all
+        possible shapes.
+
+    column_shape => circle | diamond | ellipse ...
+        Defaulted to circle. It is a shortcut to control the shape of all
+        attributes (columns). Please refer to the Graph::Easy Manual for all
+        possible shapes.
 
   _graph_it()
     This is an internal API to construct the graph.
+
+  _set_node()
+    This is an internal API for setting attributes of class nodes.
 
   _prettify()
     This is an internal API to prettify class labels and attribute (column)
