@@ -1,5 +1,8 @@
 Revision history for Class-DBI-GraphEasy
 
+0.04    Mon 18 Dec 2006 22:30
+        - Updated POD.
+
 0.03    Mon 18 Dec 2006 19:30
         - Simplified Implementation.
 

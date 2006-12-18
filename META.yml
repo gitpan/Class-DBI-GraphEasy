@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name: Class-DBI-GraphEasy
-version: 0.03
+version: 0.04
 author:
   - Xufeng Liang <danny@scm.uws.edu.au>
 abstract: use Graph::Easy to graph Class::DBI classes automatically
@@ -12,5 +12,5 @@ requires:
 provides:
   Class::DBI::GraphEasy:
     file: lib/Class/DBI/GraphEasy.pm
-    version: 0.03
+    version: 0.04
 generated_by: Module::Build version 0.2609

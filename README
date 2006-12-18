@@ -17,7 +17,7 @@ DESCRIPTION
     This module integrates Class::DBI and Graph::Easy. It is designed to
     automatically generate diagrams to illustrate the given Class::DBI
     classes. By default, it traverses both 'has a' and 'has many'
-    relationships to discovery foreign classes recusively until not further
+    relationships to discovery foreign classes recursively until not further
     relationships are found.
 
 METHODS
