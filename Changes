@@ -1,5 +1,8 @@
 Revision history for Class-DBI-GraphEasy
 
+0.03    Mon 18 Dec 2006 19:30
+        - Simplified Implementation.
+
 0.02    Mon 18 Dec 2006 9:40
         - Reorganized internal implementation. Updated POD. Added the options to change class and column shapes.
 

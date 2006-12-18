@@ -79,9 +79,6 @@ METHODS
   _graph_it()
     This is an internal API to construct the graph.
 
-  _set_node()
-    This is an internal API for setting attributes of class nodes.
-
   _prettify()
     This is an internal API to prettify class labels and attribute (column)
     labels.
