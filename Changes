@@ -1,5 +1,8 @@
 Revision history for Class-DBI-GraphEasy
 
+0.05    Tues 19 Dec 2006 21:00
+        - Removed all hardcoded color settings, allowing them to be changed via the exported variables. 
+
 0.04    Mon 18 Dec 2006 22:30
         - Updated POD.
 

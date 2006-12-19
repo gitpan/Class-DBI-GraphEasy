@@ -44,7 +44,9 @@ METHODS
         attributes.
 
     colorize => 0 | 1
-        Defaulted to 0. If set to 1, it will use a default color style.
+        Defaulted to 0. If set to 1, it will use a default color schema. The
+        easiest way to change this is by modifying the values of the
+        exported variables (requires 0.05+).
 
     show_columns => 0 | 1
         Defaulted to 0. It controls whether to graph the attributes
