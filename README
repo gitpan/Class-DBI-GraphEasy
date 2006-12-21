@@ -58,7 +58,7 @@ METHODS
         Defaulted to 0. If set to 1, the module will NOT traverse
         relationships automatically to discovery foreign classes.
 
-    flow => north | south | west | east
+    flow => north | south | west | east ...
         Defaulted to east. It is a shortcut to the flow directions of a
         graph suppported by Graph::Easy.
 
@@ -99,3 +99,4 @@ COPYRIGHT & LICENSE
 
     This program is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.
+

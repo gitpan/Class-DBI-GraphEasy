@@ -1,5 +1,8 @@
 Revision history for Class-DBI-GraphEasy
 
+0.06    Thur 21 Dec 2006 11:24
+        - Supports classes with multiple primary keys. Minor code refactoring. Updated POD. 
+
 0.05    Tues 19 Dec 2006 21:00
         - Removed all hardcoded color settings, allowing them to be changed via the exported variables. 
 
