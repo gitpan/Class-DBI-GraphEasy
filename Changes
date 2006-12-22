@@ -1,5 +1,8 @@
 Revision history for Class-DBI-GraphEasy
 
+0.07    Fri 22 Dec 2006 10:43
+        - Fixed the Graph::Easy dependency issue for installation.
+
 0.06    Thur 21 Dec 2006 11:24
         - Supports classes with multiple primary keys. Minor code refactoring. Updated POD. 
 

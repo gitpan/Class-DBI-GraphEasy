@@ -5,6 +5,7 @@ WriteMakefile
           'NAME' => 'Class::DBI::GraphEasy',
           'VERSION_FROM' => 'lib/Class/DBI/GraphEasy.pm',
           'PREREQ_PM' => {
+          				   'Graph::Easy' => '0',
                            'Class::DBI' => '0',
                            'Class::ISA' => '0',
                            'Test::More' => '0'

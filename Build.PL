@@ -8,6 +8,7 @@ my $builder = Module::Build->new(
     dist_author         => 'Xufeng Liang <danny@scm.uws.edu.au>',
     dist_version_from   => 'lib/Class/DBI/GraphEasy.pm',
     requires => {
+    	'Graph::Easy' => 0,
         'Test::More' => 0,
         'Class::DBI' => 0,  # for tests
         'Class::ISA' => 0,
